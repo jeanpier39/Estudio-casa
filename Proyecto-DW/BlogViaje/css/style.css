@@ -1,0 +1,188 @@
+html {
+    box-sizing: border-box; /* box-sizing, permite que cuando se aplica el padding o borders no afecte el tamaño del elemento principal */
+ }
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+ }
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+img{
+    max-width: 100%;
+}
+p{
+    font-size: 16px;
+    line-height: 2;
+}
+.boton{
+    background-color: #00B8E4;
+    padding: 10px 30px;
+    display: inline-block; /* nos permite controlar el margen */
+    margin-top: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    transition: .3s ease-in-out;
+}
+.boton:hover{
+    background-color: rgb(5, 73, 90);
+}
+.site-header{
+    padding: 20px 0;
+}
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto;/* recomendado para centrar layouts*/
+}
+.clearfix::after{ /* limpiar el float. después de que tenga la clase el siguiente  que se va a crear tiene que tener las sgtes reglas de CSS, al usar after o before se pone un content. Otra manera Overflow: auto */
+    content: '';
+    clear: both;
+    display: block;
+}
+/** Navegacion Responsive **/
+.barra{
+    overflow: hidden;
+}
+.mobile-menu{
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+    padding: 20px 0;
+}
+#nav:target{
+    max-height: 800px;
+}
+.navegacion-principal{
+    max-height: 0;
+    transition: .5s;
+}
+@media (min-width: 768px) {
+    .navegacion-principal{
+        max-height: unset;
+    }
+    .mobile-menu,
+    .cerrar{
+        display: none!important;
+    }
+}
+/** Navegación **/
+.barra{
+    margin-top: 40px;
+    background-color: #DB008D;
+}
+.navegacion-principal a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+@media (min-width: 768px){
+    .navegacion-principal a{
+        display: inline-block;
+    }
+}
+.navegacion-principal a:hover{ /* hover,efecto al cursor */
+    background-color: #00B8E4;
+}
+/** Contenedores Prinicpal **/
+.contenido-principal{
+    margin-top: 40px;
+}
+.contenido-principal,
+.sidebar{
+    padding: 20px;
+}
+@media (min-width: 768px){ /* el codigo solo se aplique cuando hay suficiente espacio */
+    .contenido-principal{
+        width: 70%; /* en % se ajusta al contenedor */
+        float: left; /* float=propiedad se usa para posicionar y formatear contenido. Ver bien cuanto mide el contenedor */
+        padding: 0 60px 0 0;
+    }
+    .sidebar{
+        width: 30%;
+        float: right;
+        padding: 0;
+    }
+}
+/** Entrada de Blog **/
+h2{
+    color: #00B8E4;
+    margin-bottom: 20px;
+}
+.entrada{
+    margin-bottom: 60px;
+}
+.entrada:last-of-type{
+    margin-bottom: 0;
+}
+.entrada img{
+    display: block;
+}
+@media (min-width: 480px) {
+    .entrada img{
+        width: 300px;
+        float: left;
+        margin: 0 30px 30px 0;
+    }
+}
+.entrada p{
+    text-align: justify;
+}
+/** Sidebar **/
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li{
+    padding: 10px;
+}
+.sidebar ul li:hover{
+    background-color: #00B8E4;
+}
+.sidebar ul li a{
+    color: #00B8E4;
+    font-size: 18px;
+    text-decoration: none;
+}
+.sidebar ul li:hover a{
+    color: #ffffff;
+}
+/* Footer */
+.footer-sitio{
+    background-color: #DB008D;
+    padding-top: 40px;
+    margin-top: 40px;
+    color: #ffffff;
+    text-align: center;
+}
+.footer-sitio h2{
+    color: #ffffff;
+}
+.footer-sitio a{
+    color: #ffffff;
+    text-decoration: none;
+
+}
+@media (min-width: 768px) {
+    .footer-sitio .nosotros{
+        float: left;
+        width: 30%;
+    }
+    .footer-sitio .menu{
+        float: right;
+        width: 50%;
+        text-align: right;
+    }
+}
+.copyright{
+    background-color: #B10474;
+    margin: 50px 0 0 0;
+    padding: 20px 0;
+}

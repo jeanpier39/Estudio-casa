@@ -1,0 +1,419 @@
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /*Reset para REMS - 62.5% = 10 px de 16px, rem=se adapta a los diferentes dispositivos*/
+}
+*, 
+*:before, 
+*:after {   /* *, *:before, *:after, box-sixing=Esto le da el modelo de caja que desea. Lo aplica a todos los elementos*/
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    line-height: 2;
+}
+/*Globales*/
+img{
+    max-width: 100%; /*imagenes responsive*/
+}
+.contenedor{
+    width: 95%;
+    max-width: 120rem; /* 1120 px = 120rem, Toma todo el espacio disponible sin pasar el valor dado*/
+    margin: 0 auto; /*margin: 0 auto=separacion del elemento hacía otro elemento*/
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+p{
+    font-size: 1.5rem;
+}
+/** Utilidades **/
+.seccion{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.fw-300{
+    font-weight: 300;/*font-weight=cambiar ancho de letra*/
+}
+.d-block{
+    display: block !important; /*toma primero*/
+}
+.centrar-texto{
+    text-align: center;
+}
+.contenido-centrado{
+    max-width: 800px;
+}
+/** Botones **/
+.boton{
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    display: inline-block; /*transforma a block los elemenos inline para dar ancho, margin, etc, block=toma todo el ancho*/
+    text-align: center;
+    border: none;
+    display: block;
+    flex: 0 0 100%;
+}
+@media (min-width: 768px) {
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+.boton:hover{
+    cursor: pointer;
+}
+.boton-amarillo{
+    background-color: #E08709;
+}
+.boton-verde{
+    background-color: #71B100;
+}
+/*Header*/
+.site-header{
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+.site-header.inicio{
+    background-image: url(../img/header.jpg); /*background-image=Toma imagenes*/
+    background-position: center center; /*Muestra la imagen desde el centro y la expande*/
+    background-size: cover; /*cover=Fuerza a tomar todo el espacio enn altura y anchura guardando las proporciones*/
+    height: 100vh; /*vh=La altura de la pantalla*/
+    min-height: 60rem; /*min-height=Mínimo para pantallas pequeñas*/
+}
+.contenido-header{
+    height: 100%;
+    display: flex; /*Solo afecta el primer nivel de hijos*/
+    flex-direction: column; /*Direccion de flexbox arriba hacía abajo*/
+    justify-content: space-between;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .contenido-header{
+        text-align: left;
+    }
+}
+.contenido-header h1{
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+.barra{
+    padding-top: 3rem; /*espacio hacía adentro del elemento*/
+}
+@media (min-width: 768px) {
+    .barra{
+        display: flex; 
+        justify-content: space-between; /*justify-content=Para alinear horizontalmente*/ /*space-between=permite alinear uno a la derecha y otro a la izquierda*/
+        align-items: center;/*align-items=alinear verticalmente*/
+    }
+}
+/** Navegacion **/
+.navegacion a{
+    color: #ffffff; /*color al texto*/
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+}
+@media (min-width: 768px) {
+    .navegacion a{
+        display: inline-block;
+        font-size: 1.8rem; /*Tamaño de fuente, 18px*/
+        margin-right: 2rem;
+    }
+    .navegacion a:last-of-type{
+        margin: 0;
+    }
+}
+.navegacion a:hover {
+    color: #71B100;
+}
+/** Mobil Menu **/
+.mobile-menu img{
+    width: 5rem;
+}
+@media (min-width: 768px) {
+    .mobile-menu{
+        display: none;
+    }
+}
+.navegacion:target{
+    display: block;
+}
+.navegacion{
+    display: none;
+}
+@media (min-width: 768px) {
+    .navegacion{
+        display: block;
+    }
+}
+/** Iconos Nosotros **/
+@media (min-width: 768px) {
+    .iconos-nosotros{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.icono{ 
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .icono{
+        flex-basis: calc(33.3% - 1rem); /*flex-basis=base flexible de un elemento, calc=Permite realziar operaciones*/
+    }
+}
+.icono h3{
+    text-transform: uppercase; /*text-transform=toma diferentes opciones para cambiar el texto*/
+}
+/** Anuncios **/
+@media (min-width: 768px) {
+    .contenedor-anuncios{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; /*especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas. Si la cobertura (wrap) está permitida, esta propiedad también te permite controlar la dirección en la cual serán apilados los elementos.*/
+    }
+}
+.anuncio{
+    /*flex-grow: 0; /*Contenido crezca si es poible*/
+    /*flex-shrink: 0; /* Contenido se haga más pequeño si es posible, especifica el factor de contracción de un flex item. Los flex items se encogerán para llenar el contenedor de acuerdo a su número, valor 1 por defecto , 0 para que no se encoja y tome el tamaño de la base*/
+    /*flex-basis: calc(33.3% - 1rem);*/ /*Base*/
+    border: 1px solid #B5B5B5; /*border usa los 3 estilos, border-width border-style border-color*/
+    background-color: #F5F5F5;
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .anuncio{
+        flex: 0 0 calc(33.3% - 1rem); /*resume flex-grow, flex-shrink, flex-basis. Para que no crezca o se haga mas pequeño usar 0 en ambos*/
+    }
+}
+.contenido-anuncio{
+    padding: 2rem;
+}
+.contenido-anuncio h3, 
+p{
+    margin: 0;
+}
+.precio{
+    color: #71B100;
+    font-weight: 700;
+}
+.iconos-caracteristicas{
+    list-style: none; /*Personalizar el icono de la lista*/
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    max-width: 500px;
+}
+.iconos-caracteristicas li{
+    /*flex: 1;*/
+    display: flex;
+}
+.iconos-caracteristicas li img{
+    margin-right: 2rem;
+}
+.ver-todas{
+    display: flex;
+    justify-content: flex-end;
+}
+/** Contacto Home **/
+.imagen-contacto{
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+}
+.contenido-contacto{
+    flex: 0 0 95%; /*La propiedad CSS flex es una propiedad resumida que indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible. Los elementos flexibles pueden ser estirados para utilizar el espacio disponible proporcional a su factor de crecimiento flexible o su factor de contracción flexible para evitar desbordamiento*/
+    color: #ffffff;
+}
+.contenido-contacto p{
+    font-size: 1.8rem;
+}
+/** Seccion Inferior**/
+@media (min-width: 768px) {
+    .seccion-inferior{
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog{
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales{
+        flex-basis: calc(40% - 2rem);
+    }
+}
+.entrada-blog{
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+    .entrada-blog{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.entrada-blog:last-of-type{
+    margin-bottom: 0;
+}
+@media (min-width: 768px) {
+    .entrada-blog .imagen{
+        flex-basis: 40%;
+    }
+    .entrada-blog .texto-entrada{
+        flex-basis: calc(60% - 3rem);
+    }
+}
+.texto-entrada a{
+    color: #000000;
+    text-decoration: none;
+}
+.texto-entrada h4{
+    margin: 0;
+    line-height: 1.4; /*Interlineado*/
+}
+.texto-entrada h4::after{ /*pseudoelemento que no existe, son creados de forma virtual*/
+    content: '';
+    display: block; /*Toma todo el espacio disponible*/
+    width: 15rem;
+    height: .5rem;
+    background-color: #71B100;
+    margin-top: 1rem;
+}
+.texto-entrada span{
+    color: #E08709;
+}
+/** Testimoniales **/
+.testimonial{
+    background-color: #71B100;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: #ffffff;
+    border-radius: 2rem;
+}
+.testimonial p{
+    text-align: right;
+    font-size: 2rem;
+}
+.testimonial blockquote::before{ /*pseudoelemento=decirle cuannto va a medir*/
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 4rem; 
+    height: 4rem;
+    position: absolute; /* position,=Permite posicionar un elemento en un lugar en específico. Hijo en posicion:absolute para que se pueda usar las propiedades top,left,bottom,right tanto en positivo y negativo*/
+    left: -2rem;
+}
+.testimonial blockquote{
+    position: relative; /*padre en position:relative*/
+    padding-left: 5rem;
+    font-weight: 300;
+}
+/** Footer **/
+.site-footer{
+    background-color: #333333;
+    margin: 0;
+}
+.contenedor-footer{
+    padding: 3rem 0;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .contenedor-footer{
+       display: flex;
+       justify-content: space-between;
+    }
+}
+.site-footer nav{
+    display: none;
+}
+@media (min-width: 768px) {
+    .site-footer nav{
+        display: block;
+    }
+}
+.copyright{
+    margin: 0;
+    color: #ffffff;
+}
+/** INTERNAS **/
+/* Nosotros */
+@media (min-width: 768px) {
+    .contenido-nosotros{
+        display: grid; /*cssgrid nuevo estandar junto a flexbox*/
+        grid-template-columns: repeat(2, 1fr); /*para el grid se usa columna, dividir elementos, ver cuantos hijos hay para definir columnas, diferentes maneras de usar, px, %, fr, repeat*/
+        grid-column-gap: 2rem;/*entre cada columna crea separación*/
+    }
+}
+
+.texto-nosotros blockquote{
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+/* Anuncio */
+.resumen-propiedad{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*Contacto*/
+.contacto p{
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    margin: 2rem 0 0 0;
+}
+legend{
+    font-size: 2rem;
+    color: #4f4f4f;
+}
+label{
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+input:not([type="submit"]),
+textarea,
+select{
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+}
+input[type="radio"]{
+    width: auto;/*auto=toma el espacio que requiere automaticamene*/
+    margin: 0;
+}
+select{
+    -webkit-appearance: none;
+    appearance: none; /*elimina estilos predeteminados*/
+}
+textarea{
+    height: 20rem;
+}
+.forma-contacto{
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
